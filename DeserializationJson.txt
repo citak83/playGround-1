@@ -1,0 +1,209 @@
+Deserialization == parse
+Find facts not about cats from http://cat-fact.herokuapp.com/facts
+Search for facts that do not contain cat keyword in "text" field.
+Map<String, List<Object>> map;
+{
+    "all": [ 
+        {
+            "_id": "599f87db9a11040c4a16343f",
+            "text": "The goddess of love, beauty, and fertility in Norse mythology, Freyja was the first cat lady. She is depicted in stories as riding a chariot that was drawn by cats.",
+            "type": "cat",
+            "upvotes": 6,
+            "userUpvoted": null
+        },
+        {
+            "_id": "5b0c5e3e7ab3c50014df65fe",
+            "text": "People who own cats have on average 2.1 pets per household, where dog owners have about 1.6.",
+            "type": "cat",
+            "upvotes": 6,
+            "userUpvoted": null
+        }
+        ]
+}
+Json data types can be converted in Java data types as:
+	- Json String ""   	-> Java string
+	- Json Number 		-> Java: int, double, float, long, byte
+	- Json boolean 		-> Java: true/false
+	- Json array []		-> Java: Array[], ArrayList, List
+	- Json null 		-> Java: null
+	- Json object {}	-> Java: Object
+Key-value format in Json -> Java: Map
+{
+        "company": "StatusCode Weekly",
+        "url": "http://statuscode.org/",
+        "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things."
+} -> Map<String, String>
+{
+        "id": 2,
+        "email": "janet.weaver@reqres.in",
+        "first_name": "Janet",
+        "last_name": "Weaver",
+        "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg"
+}
+Map<String, Object>
+=
+{
+  "data": {
+        "id": 2,
+        "email": "janet.weaver@reqres.in",
+        "first_name": "Janet",
+        "last_name": "Weaver",
+        "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg"
+    }
+}
+Map<String, Object>
+"ad": {
+        "company": "StatusCode Weekly",
+        "url": "http://statuscode.org/",
+        "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things."
+    }
+Map<String, Object>
+ {
+    "_id": "599f87db9a11040c4a16343f",
+    "text": "The goddess of love, beauty, and fertility in Norse mythology, Freyja was the first cat lady. She is depicted in stories as riding a chariot that was drawn by cats.",
+    "type": "cat",
+    "user": {
+        "_id": "5a9ac18c7478810ea6c06381",
+        "name": {
+            "first": "Alex",
+            "last": "Wohlbruck"
+        }
+    },
+    "upvotes": 6,
+    "userUpvoted": null
+}
+Map<String, Object>
+{
+    "all": [
+        {
+            "_id": "599f87db9a11040c4a16343f",
+            "text": "The goddess of love, beauty, and fertility in Norse mythology, Freyja was the first cat lady. She is depicted in stories as riding a chariot that was drawn by cats.",
+            "type": "cat",
+            "user": {
+                "_id": "5a9ac18c7478810ea6c06381",
+                "name": {
+                    "first": "Alex",
+                    "last": "Wohlbruck"
+                }
+            },
+            "upvotes": 6,
+            "userUpvoted": null
+        },
+}
+]
+Map<String, Object>
+Map<String, List<Map<String, Object>>>
+{
+    "all": [
+        {
+            "_id": "599f87db9a11040c4a16343f",
+            "text": "The goddess of love, beauty, and fertility in Norse mythology, Freyja was the first cat lady. She is depicted in stories as riding a chariot that was drawn by cats.",
+            "type": "cat",
+            "user": {
+                "_id": "5a9ac18c7478810ea6c06381",
+                "name": {
+                    "first": "Alex",
+                    "last": "Wohlbruck"
+                }
+            },
+            "upvotes": 6,
+            "userUpvoted": null
+        },
+}
+]
+.get("all"): -> array, List:
+	[
+        {
+            "_id": "599f87db9a11040c4a16343f",
+            "text": "The goddess of love, beauty, and fertility in Norse mythology, Freyja was the first cat lady. She is depicted in stories as riding a chariot that was drawn by cats.",
+            "type": "cat",
+            "user": {
+                "_id": "5a9ac18c7478810ea6c06381",
+                "name": {
+                    "first": "Alex",
+                    "last": "Wohlbruck"
+                }
+            },
+            "upvotes": 6,
+            "userUpvoted": null
+        },
+}
+]
+.get(0) :
+{
+            "_id": "599f87db9a11040c4a16343f",
+            "text": "The goddess of love, beauty, and fertility in Norse mythology, Freyja was the first cat lady. She is depicted in stories as riding a chariot that was drawn by cats.",
+            "type": "cat",
+            "user": {
+                "_id": "5a9ac18c7478810ea6c06381",
+                "name": {
+                    "first": "Alex",
+                    "last": "Wohlbruck"
+                }
+            },
+            "upvotes": 6,
+            "userUpvoted": null
+        }
+Map<String, Object> map
+map.get("text");
+ObjectMapper objectMapper = new ObjectMapper();
+Map<String, List> parsedResponse = objectMapper.readValue(response.getEntity().getContent(),
+   new TypeReference<Map<String, List>>() {});
+Map<String, String>
+{
+	"key":"12",
+	"key1":"value",
+	"key2":"value",
+	"key3":"value",
+	"key4":"value",
+	"key5":"value",
+	"key6":"value"
+}
+Map<Object, Object>
+{
+	"key":12,
+	"key1":"value",
+	"key2":"value",
+	"key3":"value",
+	"key4":"value",
+	"key5":"value",
+	"key6":"null"
+}
+Map<String, Map<String, String>>
+{
+	"key":
+	{
+		"key": "value",
+		"ky2": 23
+	}
+}
+List<Map<String, Object>>
+{
+	[
+	{
+	"key":23,
+	"key2": {
+			"key3":"234"
+	}
+	}]
+}
+Map<String, List<Map<String, Map<String, List<Map<String, List<Map<String, String>>>>>>>
+{
+	"cats": [
+	{
+		"id": {
+			"id2": [
+				{
+				"id3": [
+				{
+					"id4": "12332"
+					}
+				]
+			}
+		]
+	}
+	]
+}
+Map<String, List<Map<String, Map<String, List<Map<String, List<Map<String, List<String>>>>>>>>
+Response from cat facts can be parsed as:
+Map<String, List<Map<String, Object>>>
